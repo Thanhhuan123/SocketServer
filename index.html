@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages</title>
+</head>
+<body>
+    <h1>Messages</h1>
+    <ul id="messageList"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('message', (message) => {
+            const messageList = document.getElementById('messageList');
+            const listItem = document.createElement('li');
+            listItem.textContent = message;
+            messageList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
